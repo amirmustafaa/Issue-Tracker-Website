@@ -1,0 +1,234 @@
+
+/*************************** Home Page **********************************/
+footer{
+  background-color:  #4e89ae;
+
+}
+/* Navbar  */
+
+.nav{
+  vertical-align: top;
+  margin-right: 60%;
+}
+
+.nav-link{
+  color: #4e89ae;
+}
+
+.links{
+  margin-left: 3%;
+}
+
+.navbar-brand{
+  margin-left: 17%;
+}
+
+.logIn{
+  margin-left: 40%;
+
+}
+
+
+
+/* Title and Image */
+
+.title{
+  /* background-color: #f1f3f8; */
+  vertical-align: top;
+}
+
+.big-heading{
+  font-size: 2.5rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-left: 30%;
+  padding-top: 15%;
+}
+
+.get-started-reg{
+  margin-left: 35%;
+  margin-top: 3%;
+}
+
+.get-started-log{
+  margin-left: 5%;
+  margin-top: 3%
+}
+
+
+.team-img{
+  width: 75%;
+
+}
+
+/* Features */
+
+.title2{
+  margin-left: 30%;
+  text-align: center;
+  padding-top: 3%;
+  padding-left: 7%;
+  padding-right: 7%;
+
+}
+
+.features {
+  background-color: white;
+  padding: 2% 20%;
+  position: relative;
+}
+
+.feature-box {
+  padding-top: 2%;
+  padding-bottom: 15%;
+  text-align: center;
+
+}
+
+.feature-title {
+  font-size: 1.5rem;
+}
+
+
+.icon{
+  color: #4e89ae;
+}
+
+/**********Footer***********/
+
+
+/*************************** About Page **********************************/
+.about-heading{
+  padding-top: 5%
+}
+.about-mission{
+  font-size: 3.5rem;
+  padding-bottom: 3%;
+  text-align: center;
+}
+
+.about-us{
+  font-size: 3.5rem;
+  text-align: center;
+}
+/****************************Register Page************************************/
+
+/****************************Log in Page************************************/
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-label-group>input {
+  padding: var(--input-padding-y) var(--input-padding-x);
+
+}
+
+.btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+
+
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@media (-ms-ime-align: auto) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+/***************************Sidebar*****************************************/
+.sidebar {
+  width: 15rem;
+  min-height: 100vh;
+  background-color: #242424;
+  margin: 0px;
+}
+
+.sidebar .nav-link  {
+  position: relative;
+  color: white;
+}
+
+.sidebar-brand{
+  color:white;
+}
+
+
+/***************************Dashboard********************************************/
+.flex-container {
+    display:flex;
+}
+
+.flex-side {
+    flex: 1;
+    border: 2px solid yellow;
+}
+.flex-main{
+  flex: 7;
+  border: 2px solid yellow;
+
+}
+
+/***************************Profile********************************************/
+
+.Create-Project{
+  margin-left: 5%;
+}
