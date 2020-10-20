@@ -12,6 +12,7 @@ app.use(cors());
 //set up mongoose
 mongoose.connect("mongodb://localhost:27017/trackerDB", {
   useUnifiedTopology: true,
+  useFindAndModify: false,
   useNewUrlParser: true,
   useCreateIndex: true
 });

@@ -66,7 +66,7 @@ function Sidebar(){
 
 
       <li className="nav-item">
-        <a className="nav-link" href="charts.html">
+        <a className="nav-link" href={"/charts/" + projectId}>
           <i className="fas fa-fw fa-chart-area"></i>
           <span>Charts</span></a>
       </li>

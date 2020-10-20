@@ -11,6 +11,7 @@ import MainPage from './Dashboard/MainPage/MainPage.jsx';
 import TicketInfo from './Dashboard/TicketInfo/TicketInfo.jsx';
 import CreateTicket from './Dashboard/CreateTicket/CreateTicket.jsx';
 import Users from './Dashboard/Users/Users.jsx';
+import Charts from './Dashboard/Charts/Charts.jsx';
 import Profile from './Profile/Profile.jsx';
 import CreateProject from './Profile/CreateProject.jsx';
 import AddProject from './Profile/AddProject.jsx';
@@ -72,6 +73,7 @@ useEffect(() => {
           <Route path= "/createticket/:projectId"component = {CreateTicket} />
           <Route path= "/ticketinformation/:ticketid"component = {TicketInfo} />
           <Route path= "/users/:projectId"component = {Users} />
+          <Route path= "/charts/:projectId"component = {Charts} />
         </UserContext.Provider>
       </Switch>
     </Router>

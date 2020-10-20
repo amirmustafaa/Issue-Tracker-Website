@@ -199,10 +199,11 @@ router.post("/createIssue", async(req,res) => {
 router.post("/userProjects",  async(req, res)=>{
   try{
     let {project_id} = req.body;
-    const project = await Project.findById(project_id).populate('issues');
+    const project = await Project.findById(project_id).populate('issues').populate({ path: 'users', select: 'email' })
     res.json({
         name:project.name,
         description:project.description,
+        users:project.users,
         issues: project.issues
     })
   }catch(err){
@@ -232,7 +233,22 @@ router.post("/ticketInformation",  async(req, res)=>{
 
 router.post("/updateTicket",  async(req, res)=>{
   try{
+    let {issueId, projectId, userId} = req.body;
 
+
+    let project = await Project.findById(projectId);
+    let user = await User.findById(userId);
+
+    if(project.admin === user.username){
+
+      let issue = await Issue.findByIdAndUpdate(issueId, {status:"Resolved"});
+      res.json({
+        issueStatus:issue.status
+      });
+
+    }else {
+      res.json("You are not a Admin on this Project.")
+    }
 
   }catch(err){
   res.status(500).json(err.message);

@@ -28,6 +28,7 @@
     "react-scripts": "3.4.3",
     "reactjs-popup": "^2.0.4",
     "reactstrap": "^8.6.0",
+    "recharts": "^1.8.5",
     "universal-cookie": "^4.0.4"
   },
   "scripts": {
