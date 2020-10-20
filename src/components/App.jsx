@@ -10,13 +10,18 @@ import Demo from './Dashboard/Demo/Demo.jsx';
 import MainPage from './Dashboard/MainPage/MainPage.jsx';
 import TicketInfo from './Dashboard/TicketInfo/TicketInfo.jsx';
 import CreateTicket from './Dashboard/CreateTicket/CreateTicket.jsx';
+import Users from './Dashboard/Users/Users.jsx';
 import Profile from './Profile/Profile.jsx';
 import CreateProject from './Profile/CreateProject.jsx';
+import AddProject from './Profile/AddProject.jsx';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 
 
 function App() {
+const cookies = new Cookies();
+
 const [userData, setUserData] = useState({
   token:undefined,
   user: undefined
@@ -24,9 +29,9 @@ const [userData, setUserData] = useState({
 
 useEffect(() => {
   const checkLoggedIn = async () => {
-    let token = localStorage.getItem("auth-token");
+    let token = cookies.get("auth-token");
     if (token === null) {
-      localStorage.setItem("auth-token", "");
+      cookies.set("auth-token", "");
       token = "";
     }
     const tokenRes = await Axios.post(
@@ -62,9 +67,11 @@ useEffect(() => {
           <Route path= "/demo" component = {Demo} />
           <Route path= "/profile/:userId"  component = {Profile} />
           <Route path= "/createproject/:userId" component = {CreateProject} />
+          <Route path= "/addproject/:userId" component = {AddProject} />
           <Route path= "/mainpage/:projectId"  component = {MainPage} />
           <Route path= "/createticket/:projectId"component = {CreateTicket} />
           <Route path= "/ticketinformation/:ticketid"component = {TicketInfo} />
+          <Route path= "/users/:projectId"component = {Users} />
         </UserContext.Provider>
       </Switch>
     </Router>

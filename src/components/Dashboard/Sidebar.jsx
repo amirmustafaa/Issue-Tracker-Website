@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
+import UserContext from "../../context/UserContext"
 import Axios from 'axios';
 
 
 function Sidebar(){
-
+  const {userData} = useContext(UserContext);
   let history = useHistory();
   const [name, setState] = useState();
 
@@ -26,7 +27,9 @@ function Sidebar(){
     setState(projectRes.data.name);
   };
 
-getName()
+  useEffect(() => {
+    getName();
+  },[])
 
   return(
     <div>
@@ -52,19 +55,10 @@ getName()
         </a>
       </li>
 
-
-      <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i className="fas fa-fw fa-wrench"></i>
-          <span>Manage Tickets</span>
-        </a>
-      </li>
-
-
       <hr className="sidebar-divider"/>
 
       <li className="nav-item">
-        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a className="nav-link collapsed" href={"/users/" + projectId} data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i className="fas fa-fw fa-folder"></i>
           <span>Users</span>
         </a>

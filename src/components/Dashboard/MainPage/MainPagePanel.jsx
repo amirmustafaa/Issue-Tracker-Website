@@ -1,4 +1,4 @@
-import React, {useState}from 'react';
+import React, {useState, useEffect}from 'react';
 import DashNavbar from '../DashNavbar.jsx';
 import { Link} from 'react-router-dom';
 import Axios from 'axios';
@@ -20,15 +20,32 @@ function MainPagePanel(){
     setState(projectRes.data.issues)
 
   };
-  getIssue()
+  useEffect(() => {
+    getIssue();
+  },[])
+
   return(
     <div>
       <DashNavbar />
       <div class="list-group">
       {state.map(function(d, idx){
+        //if(d.status == 'issuetest2'){
        return  (
          <a href = {"/ticketinformation/" + d._id + "/" + projectId}><li className="list-group-item" > {d.name}</li></a>
-      )})}
+       )
+    // }
+      })}
+
+      </div>
+      <h3> Resolved </h3>
+      <div class="list-group">
+      {state.map(function(d, idx){
+        //if(d.status == 'issuetest2'){
+       return  (
+         <a href = {"/ticketinformation/" + d._id + "/" + projectId}><li className="list-group-item" > {d.name}</li></a>
+       )
+    // }
+      })}
 
       </div>
     </div>

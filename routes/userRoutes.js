@@ -7,6 +7,8 @@ const Issue = require("../models/issueModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
+const session = require("express-session");
+
 
 
 router.post("/register", async (req, res) =>{
@@ -106,18 +108,25 @@ router.post("/tokenIsValid", async (req, res) => {
   }
 });
 
+
+
 router.post("/createProject", async(req,res) => {
   try{
-    const {name, description, user_id} = req.body;
+    const {name, description, code, admin, user_id} = req.body; //code, admin,
+
+    const salt = await bcrypt.genSalt();
+    const codeHash = await bcrypt.hash(code,salt);
 
     const newProject = new Project({
       name,
-      description
+      description,
+      code:codeHash,
+      admin
     });
 
     const user = await User.findById(user_id);
 
-    newProject.users = user;
+    newProject.users =user;
 
     const savedProject = await newProject.save();
     user.project.push(newProject)
@@ -130,14 +139,48 @@ router.post("/createProject", async(req,res) => {
 
 })
 
+router.post("/addProject", async(req,res) => {
+  try{
+    const {projectName, code, user_id} = req.body;
+
+
+    const project = await Project.findOne({name:projectName})
+
+    const user = await User.findById(user_id);
+
+    const isMatch = await bcrypt.compare(code, project.code);
+    if(isMatch){
+      project.users.push(user);
+
+      await project.save();
+
+      user.project.push(project)
+
+      await user.save();
+      res.json("Okay");
+
+    }
+
+  }catch(err){
+    res.status(500).json(err.message);
+  }
+
+})
+
+
+
+
 router.post("/createIssue", async(req,res) => {
   try{
-    const {name, description, severity, status, project_id} = req.body;
+    const {name, description, severity, status, date, assigned, project_id} = req.body;
 
     const newIssue = new Issue({
       name,
       description,
-      severity
+      severity,
+      status,
+      date,
+      assigned
     });
 
     const project = await Project.findById(project_id);
@@ -162,6 +205,35 @@ router.post("/userProjects",  async(req, res)=>{
         description:project.description,
         issues: project.issues
     })
+  }catch(err){
+  res.status(500).json(err.message);
+}
+});
+
+router.post("/ticketInformation",  async(req, res)=>{
+  try{
+    let {ticket_id} = req.body;
+
+    const ticket = await Issue.findById(ticket_id)
+
+    res.json({
+      name:ticket.name,
+      description:ticket.description,
+      severity:ticket.severity,
+      status:ticket.status,
+      date:ticket.date,
+      assigned:ticket.assigned
+    });
+
+  }catch(err){
+  res.status(500).json(err.message);
+}
+});
+
+router.post("/updateTicket",  async(req, res)=>{
+  try{
+
+
   }catch(err){
   res.status(500).json(err.message);
 }

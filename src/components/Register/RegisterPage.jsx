@@ -2,10 +2,12 @@ import React, {useState, useContext} from 'react';
 import { useHistory} from 'react-router-dom';
 import UserContext from "../../context/UserContext"
 import Axios from 'axios';
+import Cookies from 'universal-cookie';
 
 
 
 function RegisterPage(){
+  const cookies = new Cookies();
   const { userData, setUserData } = useContext(UserContext);
 
   let history = useHistory();
@@ -45,7 +47,7 @@ function RegisterPage(){
       token: loginRes.data.token,
       user: loginRes.data.user
     });
-    localStorage.setItem("auth-token", loginRes.data.token);
+    cookies.set("auth-token", loginRes.data.token);
     history.push("/profile/" + loginRes.data.user.id);
   };
 

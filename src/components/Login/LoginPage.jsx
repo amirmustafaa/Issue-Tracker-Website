@@ -2,8 +2,10 @@ import React, {useState, useContext} from 'react';
 import { useHistory} from 'react-router-dom';
 import UserContext from "../../context/UserContext"
 import Axios from 'axios';
+import Cookies from 'universal-cookie';
 
 function LoginPage(){
+  const cookies = new Cookies();
   const {userData, setUserData} = useContext(UserContext);
 
   let history = useHistory();
@@ -35,7 +37,7 @@ function LoginPage(){
       token: loginRes.data.token,
       user: loginRes.data.user
     })
-    localStorage.setItem("auth-token", loginRes.data.token);
+    cookies.set("auth-token", loginRes.data.token);
     history.push("/profile/" + loginRes.data.user.id)
   };
 
@@ -68,6 +70,5 @@ function LoginPage(){
   );
 }
 
-//<hr className="my-4"/>
-//<button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2"></i> Sign in with Google</button>
+
 export default LoginPage

@@ -11,6 +11,8 @@ function CreateProject(){
   const [state, setState] = useState({
     name: "",
     description: "",
+    code: ""
+
   });
 
   function handleChange(event){
@@ -27,12 +29,14 @@ function CreateProject(){
     const projectObject = {
       name: state.name,
       description: state.description,
+      code:state.code,
+      admin: userData.user.username,
       user_id: userData.user.id
     };
 
     const projectRes = await  Axios.post("http://localhost:5000/users/createProject", projectObject);
 
-    history.push("/profile:" + userData.user.id);
+    history.push("/profile/" + userData.user.id);
   };
 
   return(
@@ -57,6 +61,15 @@ function CreateProject(){
                     <label >Description</label>
                 </div>
 
+                <div >
+                    <input name = "code" value = {state.code} onChange = {handleChange} type="password"  className="form-control" />
+                    <label >Project Code</label>
+                </div>
+
+
+
+
+
                 <button onClick = {handleClick} className="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Create</button>
             </form>
 
@@ -68,5 +81,6 @@ function CreateProject(){
 
   );
 }
+
 
 export default CreateProject;

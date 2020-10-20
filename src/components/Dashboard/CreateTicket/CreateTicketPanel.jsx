@@ -12,10 +12,18 @@ function CreateTicketPanel(){
   let url = window.location.href;
   let projectId = url.slice(url.length - 24);
 
+  let d = new Date();
+  let date = d.getDate();
+  let month = d.getMonth() + 1;
+  let year = d.getFullYear();
+  let dateStr =  + month + "/" + date + "/" + year;
+
+
   const [state, setState] = useState({
     name: "",
     severity: "",
-    description: ""
+    description: "",
+    assigned:"",
   });
 
 
@@ -36,11 +44,13 @@ function CreateTicketPanel(){
         severity: state.severity,
         description: state.description,
         status:"Open",
+        date: dateStr,
+        assigned: state.assigned,
         project_id: projectId
       };
 
       const issueRes = await  Axios.post("http://localhost:5000/users/createIssue", issueObject);
-      history.push("/project_mainpage:" + projectId);
+      history.push("/mainpage/" + projectId);
 
     };
 
@@ -52,7 +62,9 @@ function CreateTicketPanel(){
 
           <p class="h4 mb-4">Create Ticket</p>
 
-          <input name = "name" onChange= {handleChange} value = {state.name} type="text"  class="form-control mb-4" placeholder="Name"/>
+          <input name = "name" onChange= {handleChange} value = {state.name} type="text"  class="form-control mb-4" placeholder="Name of Ticket"/>
+
+          <input name = "assigned" onChange= {handleChange} value = {state.assigned} type="text"  class="form-control mb-4" placeholder="Name of User Assigned Ticket"/>
 
           <select name = "severity" value = {state.severity} onChange= {handleChange} class="browser-default custom-select mb-4">
               <option value="" disabled>Choose Severity</option>

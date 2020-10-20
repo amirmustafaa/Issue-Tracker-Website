@@ -43,7 +43,16 @@ function ProjectNav(){
               <NavLink href="/demo">Demo</NavLink>
             </NavItem>
           </Nav>
-          <a href = "#" className = "Create-Project"><NavbarText ><Button color="primary">Search For Project</Button>{' '}</NavbarText></a>
+
+          {userData.user ? (
+            <Link to = {"/addproject/" + userData.user.id} className = "Create-Project" >
+                <NavbarText ><Button color="primary">Search For Project</Button>{' '}</NavbarText>
+            </Link>
+          ) : (
+            <>
+            </>
+          )}
+
           {userData.user ? (
             <Link to = {"/createproject/" + userData.user.id} className = "Create-Project" >
               <NavbarText ><Button color="primary">Create Project</Button>{' '}</NavbarText>
