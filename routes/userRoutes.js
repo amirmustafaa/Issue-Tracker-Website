@@ -1,13 +1,11 @@
 const router = require("express").Router();
 const mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId;
 const User = require("../models/userModel");
 const Project = require("../models/projectModel");
 const Issue = require("../models/issueModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
-const session = require("express-session");
 
 
 

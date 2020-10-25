@@ -28,7 +28,7 @@ function ChartsPanel(){
   let resolvedCount = 0;
 
   state.map(function(d, idx){
-    if(d.status == 'Open'){
+    if(d.status === 'Open'){
       openCount += 1
     }else{
       resolvedCount +=1
@@ -41,14 +41,49 @@ function ChartsPanel(){
   ];
 
 
+  let lowCount = 0;
+  let mediumCount = 0;
+  let highCount = 0;
+
+  state.map(function(d, idx){
+    if(d.severity === 'Low'){
+      lowCount += 1
+    }if (d.severity === 'Medium') {
+      mediumCount += 1
+    }else if (d.severity === 'High') {
+      highCount += 1
+
+    }
+  })
+  const data2 = [
+    { name: 'Low', value: lowCount }, { name: 'Medium', value: mediumCount }, { name: 'High', value: highCount },
+  ];
+
+
+
   return(
     <div>
       <DashNavbar />
-      <div className = "pieChart">
-        <PieChart width={700} height={600}>
-  				<Pie dataKey="value" isAnimationActive={false} data={data} cx={300} cy={300} innerRadius={170} fill="#8884d8" label   />
-  				<Tooltip />
-  			</PieChart>
+      <div className = "chart-container">
+        <div>
+          <h2 className = "chart-header">Open/Resolved</h2>
+          <div className = "status-chart">
+
+            <PieChart width={600} height={540}>
+      				<Pie dataKey="value" isAnimationActive={false} data={data} cx={300} cy={300} innerRadius={120} fill="#8884d8" label   />
+      				<Tooltip />
+      			</PieChart>
+          </div>
+        </div>
+          <div>
+          <h2 className = "chart-header">Severity</h2>
+          <div className = "severity-chart">
+            <PieChart className = "piechart" width={600} height={540}>
+      				<Pie dataKey="value" isAnimationActive={false} data={data2} cx={300} cy={300} innerRadius={120} fill="#ffc936" label   />
+      				<Tooltip />
+      			</PieChart>
+          </div>
+        </div>
       </div>
 
     </div>

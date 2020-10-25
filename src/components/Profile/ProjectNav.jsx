@@ -1,6 +1,8 @@
 import React, {useState, useContext} from 'react';
 import UserContext from "../../context/UserContext";
 import { Link} from 'react-router-dom';
+import Logo from '../Home/logo2.png';
+
 
 import {
   Collapse,
@@ -27,26 +29,15 @@ function ProjectNav(){
   return(
       <div>
       <Navbar color="light" light expand="md">
+      <NavbarBrand href="/"><img className = "logo" src = {Logo} alt ="logo"/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="nav" navbar>
-            <NavItem>
-              <NavLink href="/">Profile</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/about">About</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/features">Features</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/demo">Demo</NavLink>
-            </NavItem>
+          <Nav className="nav profile-nav" navbar>
           </Nav>
 
           {userData.user ? (
             <Link to = {"/addproject/" + userData.user.id} className = "Create-Project" >
-                <NavbarText ><Button color="primary">Search For Project</Button>{' '}</NavbarText>
+                <NavbarText ><Button color="primary">Add Project</Button>{' '}</NavbarText>
             </Link>
           ) : (
             <>

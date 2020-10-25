@@ -36,7 +36,7 @@ function CreateProject(){
 
     const projectRes = await  Axios.post("http://localhost:5000/users/createProject", projectObject);
 
-    history.push("/profile/" + userData.user.id);
+    history.replace("/profile/" + userData.user.id);
   };
 
   return(
@@ -51,19 +51,16 @@ function CreateProject(){
         <div className="card-body px-lg-5">
 
             <form className="text-center">
-                <div >
-                    <input name = "name" value = {state.name} onChange = {handleChange} type="text"  className="form-control" />
-                    <label >Project Name</label>
+                <div className = "create-project" >
+                    <input name = "name" value = {state.name} onChange = {handleChange} type="text"  className="form-control" placeholder = "Project Name"/>
                 </div>
 
-                <div className="md-form">
-                    <input type="text"  className="form-control" onChange = {handleChange} name = "description" value = {state.description}/>
-                    <label >Description</label>
+                <div className="md-form create-project" >
+                    <input type="text"  className="form-control" onChange = {handleChange} name = "description" value = {state.description} placeholder = "Description"/>
                 </div>
 
-                <div >
-                    <input name = "code" value = {state.code} onChange = {handleChange} type="password"  className="form-control" />
-                    <label >Project Code</label>
+                <div className = "create-project">
+                    <input name = "code" value = {state.code} onChange = {handleChange} type="password"  className="form-control" placeholder = "Project Code"/>
                 </div>
 
 

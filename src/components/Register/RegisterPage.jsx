@@ -8,7 +8,8 @@ import Cookies from 'universal-cookie';
 
 function RegisterPage(){
   const cookies = new Cookies();
-  const { userData, setUserData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
+
 
   let history = useHistory();
 
@@ -47,12 +48,12 @@ function RegisterPage(){
       token: loginRes.data.token,
       user: loginRes.data.user
     });
-    cookies.set("auth-token", loginRes.data.token);
-    history.push("/profile/" + loginRes.data.user.id);
+    cookies.set("auth-token", loginRes.data.token,{ path: '/' }, {httpOnly:true});
+    history.replace("/profile/" + loginRes.data.user.id);
   };
 
   return(
-    <div className="container">
+    <div className="container register-page">
       <div className="row">
         <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div className="card card-signin my-5">

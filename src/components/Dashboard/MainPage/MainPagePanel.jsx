@@ -27,27 +27,34 @@ function MainPagePanel(){
   return(
     <div>
       <DashNavbar />
-      <h3> Open </h3>
-      <div class="list-group">
-      {state.map(function(d, idx){
-        if(d.status == 'Open'){
-       return  (
-         <a href = {"/ticketinformation/" + d._id + "/" + projectId}><li className="list-group-item" > {d.name}</li></a>
-       )
-     }
-      })}
+      <div className = "flex-container-tickets">
+        <div className= "flex-open">
+          <h3 className = "ticket-header"> Open </h3>
+          <div class="ticket-group">
+          {state.map(function(d, idx){
+            if(d.status == 'Open'){
+           return  (
+             <a href = {"/ticketinformation/" + d._id + "/" + projectId}><li className="list-group-item list-group-item-danger list-group-item-action  ticket-list" > {d.name}</li></a>
+           )
+         }
+          })}
 
-      </div>
-      <h3> Resolved </h3>
-      <div class="list-group">
-      {state.map(function(d, idx){
-        if(d.status == 'Resolved'){
-       return  (
-         <a href = {"/ticketinformation/" + d._id + "/" + projectId}><li className="list-group-item" > {d.name}</li></a>
-       )
-     }
-      })}
+          </div>
+        </div>
 
+        <div className= "flex-resolved">
+          <h3 className = "ticket-header"> Resolved </h3>
+          <div class="ticket-group">
+          {state.map(function(d, idx){
+            if(d.status == 'Resolved'){
+           return  (
+             <a href = {"/ticketinformation/" + d._id + "/" + projectId}><li className="list-group-item list-group-item-success list-group-item-action ticket-list " > {d.name}</li></a>
+           )
+         }
+          })}
+
+          </div>
+        </div>
       </div>
     </div>
 

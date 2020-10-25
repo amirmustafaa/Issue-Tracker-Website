@@ -17,11 +17,16 @@ import CreateProject from './Profile/CreateProject.jsx';
 import AddProject from './Profile/AddProject.jsx';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Cookies from 'universal-cookie';
-
+import PrivateRoute from './PrivateRoute.jsx';
+//const bcrypt = require("bcryptjs");
+//require("dotenv").config();
 
 
 function App() {
 const cookies = new Cookies();
+
+//const salt = bcrypt.genSalt();
+//const passwordHash = bcrypt.hash(process.env.COOKIE_SECRET);
 
 const [userData, setUserData] = useState({
   token:undefined,
@@ -31,8 +36,8 @@ const [userData, setUserData] = useState({
 useEffect(() => {
   const checkLoggedIn = async () => {
     let token = cookies.get("auth-token");
-    if (token === null) {
-      cookies.set("auth-token", "");
+    if (token === undefined) {
+      cookies.set("auth-token", "", { path: '/' }, {httpOnly:true});
       token = "";
     }
     const tokenRes = await Axios.post(
@@ -61,19 +66,17 @@ useEffect(() => {
       <Switch>
         <UserContext.Provider value = {{userData, setUserData}}>
           <Route path= "/" exact component = {Home} />
-          <Route path= "/about" component = {About} />
-          <Route path= "/features" component = {Features} />
           <Route path= "/login" component = {Login} />
           <Route path= "/register" component = {Register} />
           <Route path= "/demo" component = {Demo} />
-          <Route path= "/profile/:userId"  component = {Profile} />
-          <Route path= "/createproject/:userId" component = {CreateProject} />
-          <Route path= "/addproject/:userId" component = {AddProject} />
-          <Route path= "/mainpage/:projectId"  component = {MainPage} />
-          <Route path= "/createticket/:projectId"component = {CreateTicket} />
-          <Route path= "/ticketinformation/:ticketid"component = {TicketInfo} />
-          <Route path= "/users/:projectId"component = {Users} />
-          <Route path= "/charts/:projectId"component = {Charts} />
+          <PrivateRoute path= "/profile/:userId"  component = {Profile} />
+          <PrivateRoute path= "/createproject/:userId" component = {CreateProject} />
+          <PrivateRoute path= "/addproject/:userId" component = {AddProject} />
+          <PrivateRoute path= "/mainpage/:projectId"  component = {MainPage} />
+          <PrivateRoute path= "/createticket/:projectId"component = {CreateTicket} />
+          <PrivateRoute path= "/ticketinformation/:ticketid"component = {TicketInfo} />
+          <PrivateRoute path= "/users/:projectId"component = {Users} />
+          <PrivateRoute path= "/charts/:projectId"component = {Charts} />
         </UserContext.Provider>
       </Switch>
     </Router>

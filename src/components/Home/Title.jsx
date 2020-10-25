@@ -1,23 +1,23 @@
 import React from 'react';
-import TeamPicture from './title1.png';
-import Axios from 'axios';
+//import Axios from 'axios';
 
 function Title() {
   return(
-    <div className = "row title">
-      <div className="col-lg-6">
-        <div >
-          <h1 className = "big-heading"> The best way to track bugs and collaborate with team members </h1>
-          <a href ="/register"><button type="button" className="btn btn-outline-primary get-started-reg">Register</button></a>
-          <button type="button" className="btn btn-outline-primary get-started-log">Log In</button>
+    <header className="masthead text-white text-center">
+      <div className="overlay"></div>
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-9 mx-auto">
+            <h1 className="mb-5">Track bugs, collaborate with team members, and take your project to the next level.</h1>
+          </div>
+          <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <div className="col-12 col-md-3 mx-auto">
+              <a href= "/register"><button type="submit"className="btn btn-block btn-lg btn-primary">Sign up!</button></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="col-lg-6">
-        <img className = "team-img" src = {TeamPicture} alt = "team"/>
-      </div>
-      <h2 className = "title2"> The only tracker you will ever need. </h2>
-    </div>
-
+    </header>
   );
 
 }

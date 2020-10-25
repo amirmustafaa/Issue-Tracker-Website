@@ -1,6 +1,8 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTasks,faColumns, faCog, faUsers, faChartPie, faFile} from '@fortawesome/free-solid-svg-icons'
 import UserContext from "../../context/UserContext"
 import Axios from 'axios';
 
@@ -34,51 +36,47 @@ function Sidebar(){
   return(
     <div>
     <ul className="navbar-nav bg-gradient-primary sidebar" id="accordionSidebar">
-      <div className="sidebar-brand"><h2>{name}</h2></div>
-      <hr className="sidebar-divider my-0"/>
+
+      <div className="sidebar-brand"><h2>  {name}</h2></div>
+      <hr className = "sidebar-divider"/>
 
 
-      <li className="nav-item active">
+      <li className="nav-item sidebar-item">
         <a className="nav-link" href={"/mainpage/" + projectId}>
-          <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <FontAwesomeIcon className ="" icon={faColumns}/>
+          <span className = "sidebar-link" >Dashboard</span></a>
       </li>
 
 
-      <hr className="sidebar-divider"/>
 
-
-      <li className="nav-item">
-        <a className="nav-link collapsed" href= {"/createticket/" + projectId} >
-          <i className="fas fa-fw fa-cog"></i>
-          <span>Create Tickets</span>
-        </a>
-      </li>
-
-      <hr className="sidebar-divider"/>
-
-      <li className="nav-item">
-        <a className="nav-link collapsed" href={"/users/" + projectId} data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i className="fas fa-fw fa-folder"></i>
-          <span>Users</span>
+      <li className="nav-item sidebar-item">
+        <a className="nav-link" href= {"/createticket/" + projectId} >
+          <FontAwesomeIcon className ="" icon={faCog}/>
+          <span className = "sidebar-link">Create Tickets</span>
         </a>
       </li>
 
 
-      <li className="nav-item">
-        <a className="nav-link" href={"/charts/" + projectId}>
-          <i className="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+      <li className="nav-item sidebar-item">
+        <a className="nav-link" href={"/users/" + projectId}>
+          <FontAwesomeIcon className ="" icon={faUsers}/>
+          <span className = "sidebar-link">Users</span>
+        </a>
       </li>
 
 
-      <li className="nav-item">
+      <li className="nav-item sidebar-item">
+        <a className="nav-link " href={"/charts/" + projectId}>
+        <FontAwesomeIcon className ="" icon={faChartPie}/>
+          <span className = "sidebar-link">Charts</span></a>
+      </li>
+
+
+      <li className="nav-item sidebar-item">
         <a className="nav-link" href="tables.html">
-          <i className="fas fa-fw fa-table"></i>
-          <span>Reports</span></a>
+          <FontAwesomeIcon className ="" icon={faFile}/>
+          <span className = "sidebar-link" >Reports</span></a>
       </li>
-
-      <hr className="sidebar-divider d-none d-md-block"/>
 
       <div className="text-center d-none d-md-inline">
         <button className="rounded-circle border-0" id="sidebarToggle"></button>

@@ -51,7 +51,7 @@ function TicketInfo(){
     let ticketRes = await Axios.post("http://localhost:5000/users/updateTicket", updateObject);
 
     if (ticketRes.data == "You are not a Admin on this Project."){
-      alert("You are not a Admin on this Project.")
+      alert("You are not an Admin on this Project.")
     }else{
       history.push("/mainpage/" + projectId);
     }
@@ -71,16 +71,16 @@ function TicketInfo(){
 
           <p class="h4 mb-4">Ticket Information</p>
 
-          <input name = "name"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={name}/>
+          <input name = "name"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Name: " +name}/>
 
-          <input name = "assigned"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={assigned}/>
+          <input name = "assigned"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Assigned User: " + assigned}/>
 
-          <input name = "severity"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={severity}/>
+          <input name = "severity"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Severity: " + severity}/>
 
-          <input name = "date"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={date}/>
+          <input name = "date"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Date Created: "+ date}/>
 
           <div class="form-group">
-              <textarea name = "description"  readonly = "readonly" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder= {description}></textarea>
+              <textarea name = "description"  readonly = "readonly" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder= {"Description: " + description}></textarea>
           </div>
 
           <button  onClick= {handleClick} class="btn btn-info btn-block" >Resolve Ticket</button>

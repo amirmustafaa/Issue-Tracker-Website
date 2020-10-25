@@ -1,7 +1,7 @@
 
 /*************************** Home Page **********************************/
 footer{
-  background-color:  #4e89ae;
+  background-color:  #f0f3f5;
 
 }
 /* Navbar  */
@@ -24,7 +24,7 @@ footer{
 }
 
 .logIn{
-  margin-left: 40%;
+  margin-left: 10%;
 
 }
 
@@ -32,67 +32,97 @@ footer{
 
 /* Title and Image */
 
-.title{
-  /* background-color: #f1f3f8; */
-  vertical-align: top;
+header.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url('./img/header.jpg') no-repeat center center;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
-.big-heading{
-  font-size: 2.5rem;
-  line-height: 1.5;
-  text-align: center;
-  margin-left: 30%;
-  padding-top: 15%;
+header.masthead .overlay {
+  position: absolute;
+  background-color: #212529;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
 }
 
-.get-started-reg{
-  margin-left: 35%;
-  margin-top: 3%;
+header.masthead h1 {
+  font-size: 2rem;
 }
 
-.get-started-log{
-  margin-left: 5%;
-  margin-top: 3%
+@media (min-width: 768px) {
+  header.masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+  header.masthead h1 {
+    font-size: 3rem;
+  }
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
 }
 
 
-.team-img{
-  width: 75%;
-
-}
 
 /* Features */
 
-.title2{
-  margin-left: 30%;
-  text-align: center;
-  padding-top: 3%;
-  padding-left: 7%;
-  padding-right: 7%;
+.showcase .showcase-text {
+  padding: 3rem;
+}
+
+.showcase .showcase-img {
+  min-height: 30rem;
+  background-size: cover;
+}
+
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
+}
+
+.features-icons {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 
 }
 
-.features {
-  background-color: white;
-  padding: 2% 20%;
-  position: relative;
-}
-
-.feature-box {
-  padding-top: 2%;
-  padding-bottom: 15%;
-  text-align: center;
+.features-icons .features-icons-item {
+  max-width: 20rem;
 
 }
 
-.feature-title {
-  font-size: 1.5rem;
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+  font-size: 4.5rem;
+}
+
+.features-icons .features-icons-item:hover .features-icons-icon i {
+  font-size: 5rem;
 }
 
 
-.icon{
-  color: #4e89ae;
-}
 
 /**********Footer***********/
 
@@ -114,6 +144,14 @@ footer{
 /****************************Register Page************************************/
 
 /****************************Log in Page************************************/
+
+.login-page{
+  padding-top: 7%;
+}
+
+.register-page{
+  padding-top: 5%;
+}
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
@@ -163,12 +201,6 @@ footer{
 
 }
 
-.btn-google {
-  color: white;
-  background-color: #ea4335;
-}
-
-
 
 /* Fallback for Edge
 -------------------------------------------------- */
@@ -199,7 +231,7 @@ footer{
   width: 15rem;
   min-height: 100vh;
   background-color: #242424;
-  margin: 0px;
+
 }
 
 .sidebar .nav-link  {
@@ -208,38 +240,108 @@ footer{
 }
 
 .sidebar-brand{
-  color:white;
+  background-color: #242424;
+  color: #f5f4f2;
+  text-align: center;
+  padding-top: 8%;
 }
 
+.sidebar-divider{
+height:1px;
+border:none;
+color:white;
+background-color:white;
+width:80%;
+text-align: center;
+margin-bottom: 5%;
+auto 0 0;
+}
+
+.sidebar-item{
+  padding-left: 15%;
+  padding-bottom: 10%;
+  text-transform: uppercase;
+  opacity: .7;
+}
+
+.sidebar-link{
+  padding-left:7%;
+}
 
 /***************************Dashboard********************************************/
+
 .flex-container {
     display:flex;
 }
 
 .flex-side {
-    flex: 1;
-    border: 2px solid yellow;
+  flex: 1;
 }
 .flex-main{
   flex: 7;
-  border: 2px solid yellow;
 
 }
 
-.pieChart{
-  padding-left: 30%;
-  padding-top: 10%
+.flex-container-tickets{
+  display: flex;
+  padding: 5%;
 }
+
+.flex-open{
+  flex: 1;
+  text-align: center;
+
+}
+
+.flex-resolved{
+  flex:1;
+  text-align: center;
+
+}
+
+.ticket-header{
+  text-align: center;
+}
+
+
+
+.chart-container{
+  display:flex;
+  padding-left: 15%;
+}
+.status-chart{
+  flex:2;
+  margin-right: 0px;
+}
+.severity-chart{
+  flex:2;
+}
+.chart-header{
+  text-align: center;
+}
+
+
 
 /***************************Profile********************************************/
 
 .Create-Project{
-  margin-left: 5%;
+  margin-left: 2%;
 }
 
-.popup{
-  margin-left: 50%;
-  padding-right: 50%;
+.list-group{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+  font-size: 1.5rem;
+}
 
+.profile-heading{
+  text-align: center;
+}
+
+.profile-list{
+  color:  #0373fc;
+}
+.create-project{
+  padding-bottom: 1%;
 }

@@ -8,22 +8,23 @@ function ProfileList(){
 
   return(
 
+    <div>
+      <h2 className = "profile-heading"> Your Projects</h2>
+      <div className = "list-group">
+          {userData.user ? (
+            userData.user.project.map(function(d, idx){
+               return  (
+                 <a href = {"/mainpage/" + d._id}><li className="list-group-item list-group-item-action profile-list" > {d.name}</li></a>
+             );
 
-    <div className = "list-group">
-        {userData.user ? (
-          userData.user.project.map(function(d, idx){
-             return  (
-               <a href = {"/mainpage/" + d._id}><li className="list-group-item" > {d.name}</li></a>
-           );
+            })
+          ) : (
 
-          })
-        ) : (
-
-          <>
-          </>
-        )}
+            <>
+            </>
+          )}
+      </div>
     </div>
-
   );
 }
 

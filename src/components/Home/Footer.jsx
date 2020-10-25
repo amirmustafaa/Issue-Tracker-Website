@@ -9,12 +9,11 @@ function Footer(){
             <h5 className="mb-1">Register for free</h5>
           </li>
           <li className="list-inline-item">
-            <a href="#!" className="btn btn-outline-white btn-rounded">Sign up!</a>
+            <a href="/register" className="btn btn-outline-white btn-rounded">Sign up!</a>
           </li>
         </ul>
       </div>
-      <div className="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="#"> Amir Mustafaa</a>
+      <div className="footer-copyright text-center py-3">© 2020 Copyright: Amir Mustafaa
       </div>
       </footer>
   );
