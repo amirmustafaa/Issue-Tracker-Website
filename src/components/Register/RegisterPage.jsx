@@ -61,7 +61,7 @@ function RegisterPage(){
               <h5 className="card-title text-center">Register</h5>
               <form className="form-signin">
                 <div className="form-label-group">
-                  <input name ="username" onChange = {handleChange} value = {state.username} type="text" id="inputUsername" className="form-control"  placeholder="User Name" required/>
+                  <input name ="username" onChange = {handleChange} value = {state.username} type="text" id="inputUsername" className="form-control has-warning"  placeholder="User Name" required/>
                 </div>
 
                 <div className="form-label-group">

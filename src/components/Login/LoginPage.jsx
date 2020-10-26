@@ -54,13 +54,14 @@ function LoginPage(){
               <form className="form-signin">
 
                 <div className="form-label-group">
-                  <input name ="email" onChange = {handleChange} value = {state.email} type="email"  id="inputEmail" className="form-control" placeholder="Email address"/>
+                  <input   id="inputEmail" className="form-control" name ="email" onChange = {handleChange} value = {state.email} type="email" placeholder="Email address" required autoFocus/>
                 </div>
 
                 <div className="form-label-group">
-                  <input name = "password" onChange = {handleChange} value = {state.password} type="password" id="inputPassword" className="form-control" placeholder="Password"/>                </div>
+                  <input name = "password" onChange = {handleChange} value = {state.password} type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
+                </div>
 
-                <button onClick = {handleClick}  className="btn btn-lg btn-primary btn-block text-uppercase">Sign in</button>
+                <button onClick = {handleClick}  className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
               </form>
             </div>
           </div>

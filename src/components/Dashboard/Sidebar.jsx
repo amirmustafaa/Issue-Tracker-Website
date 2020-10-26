@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTasks,faColumns, faCog, faUsers, faChartPie, faFile} from '@fortawesome/free-solid-svg-icons'
+import {faColumns, faCog, faUsers, faChartPie} from '@fortawesome/free-solid-svg-icons'
 import UserContext from "../../context/UserContext"
 import Axios from 'axios';
 
@@ -69,13 +69,6 @@ function Sidebar(){
         <a className="nav-link " href={"/charts/" + projectId}>
         <FontAwesomeIcon className ="" icon={faChartPie}/>
           <span className = "sidebar-link">Charts</span></a>
-      </li>
-
-
-      <li className="nav-item sidebar-item">
-        <a className="nav-link" href="tables.html">
-          <FontAwesomeIcon className ="" icon={faFile}/>
-          <span className = "sidebar-link" >Reports</span></a>
       </li>
 
       <div className="text-center d-none d-md-inline">
