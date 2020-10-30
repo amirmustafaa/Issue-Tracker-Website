@@ -1,6 +1,5 @@
 import React, {useState,useEffect}from 'react';
 import DashNavbar from '../DashNavbar.jsx';
-import { Link} from 'react-router-dom';
 import Axios from 'axios';
 
 
@@ -11,7 +10,7 @@ function UsersPanel(){
 
   const [state, setState] = useState([]);
 
-  let projectId = url.slice(url.length - 24);
+  let projectId = url.slice(- 24);
 
   const projectObject = {
     project_id: projectId
@@ -19,7 +18,6 @@ function UsersPanel(){
 
   const  getData = async () =>{
     let projectRes = await Axios.post("http://localhost:5000/users/userprojects", projectObject);
-    console.log(projectRes.data);
     setState(projectRes.data.users)
 
 
@@ -32,14 +30,12 @@ function UsersPanel(){
   return(
     <div>
       <DashNavbar />
-      <div class="list-group">
+      <div className="user-list">
       <h2>Project Users</h2>
       {state.map(function(d, idx){
-        //if(d.status == 'issuetest2'){
        return  (
-         <li className="list-group-item" > {d.email}</li>
+         <li key = {idx} className="list-group-item list-group-item-action" > {d.username}</li>
        )
-    // }
       })}
 
       </div>

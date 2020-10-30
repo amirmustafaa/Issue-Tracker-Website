@@ -1,19 +1,14 @@
-import React, {useState, useContext, useEffect} from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import { useHistory } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faColumns, faCog, faUsers, faChartPie} from '@fortawesome/free-solid-svg-icons'
-import UserContext from "../../context/UserContext"
 import Axios from 'axios';
 
 
 function Sidebar(){
-  const {userData} = useContext(UserContext);
-  let history = useHistory();
   const [name, setState] = useState();
 
   let url = window.location.href;
-  let projectId = url.slice(url.length - 24);
+  let projectId = url.slice(- 24);
 
 
 

@@ -7,8 +7,6 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   Button,
   NavbarText
 } from 'reactstrap';
@@ -31,13 +29,13 @@ function DemoNavbar(){
 
   return(
     <div>
-    <Navbar color="light" light expand="md">
+    <Navbar className = "dash-nash" color="light" light expand="md">
         <NavbarBrand href="/"><img className = "logo" src = {Logo} alt ="logo"/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="nav" navbar>
           </Nav>
-          <NavbarText className = "LogIn"><Button onClick = {handleClick} color="primary">Log Out</Button>{' '}</NavbarText>
+          <NavbarText className = "Logout"><Button onClick = {handleClick} color="primary">LOG OUT</Button>{' '}</NavbarText>
         </Collapse>
       </Navbar>
     </div>

@@ -5,8 +5,6 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   NavbarText,
   Button
 } from 'reactstrap';
@@ -26,7 +24,7 @@ function Heading(){
         <Collapse isOpen={isOpen} navbar>
           <Nav className="nav" navbar>
           </Nav>
-          <a className = "logIn" href = "/login"><NavbarText ><Button color="primary">Log In</Button>{' '}</NavbarText></a>
+          <a className = "logIn" href = "/login"><NavbarText ><Button color="primary">LOG IN</Button>{' '}</NavbarText></a>
         </Collapse>
       </Navbar>
     </div>

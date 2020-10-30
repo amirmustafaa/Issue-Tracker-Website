@@ -23,7 +23,7 @@ function Details(){
                 <FontAwesomeIcon className ="text-primary mx-auto" icon={faTasks} size="4x"/>
               </div>
               <h3>Track Your Progress</h3>
-              <p className="lead mb-0">Track yor progress from the beginning to the end of your project.</p>
+              <p className="lead mb-0">Track your progress from the beginning to the end of your project.</p>
             </div>
           </div>
           <div className="col-lg-4">

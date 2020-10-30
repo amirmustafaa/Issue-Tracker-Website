@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext}from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from "../../../context/UserContext"
 import DashNavbar from '../DashNavbar.jsx';
-import { Link} from 'react-router-dom';
 import Axios from 'axios';
 
 
@@ -50,7 +49,7 @@ function TicketInfo(){
 
     let ticketRes = await Axios.post("http://localhost:5000/users/updateTicket", updateObject);
 
-    if (ticketRes.data == "You are not a Admin on this Project."){
+    if (ticketRes.data === "You are not a Admin on this Project."){
       alert("You are not an Admin on this Project.")
     }else{
       history.push("/mainpage/" + projectId);
@@ -67,23 +66,23 @@ function TicketInfo(){
   return(
     <div>
       <DashNavbar />
-      <form class="text-center border border-light p-5" action="#!">
+      <form className="text-center border border-light p-5" action="#!">
 
-          <p class="h4 mb-4">Ticket Information</p>
+          <p className="h4 mb-4">Ticket Information</p>
 
-          <input name = "name"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Name: " +name}/>
+          <input name = "name"   type="text"  className="form-control mb-4" readOnly = "readonly" placeholder={"Name: " +name}/>
 
-          <input name = "assigned"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Assigned User: " + assigned}/>
+          <input name = "assigned"   type="text"  className="form-control mb-4" readOnly = "readonly" placeholder={"Assigned User: " + assigned}/>
 
-          <input name = "severity"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Severity: " + severity}/>
+          <input name = "severity"   type="text"  className="form-control mb-4" readOnly = "readonly" placeholder={"Severity: " + severity}/>
 
-          <input name = "date"   type="text"  class="form-control mb-4" readonly = "readonly" placeholder={"Date Created: "+ date}/>
+          <input name = "date"   type="text"  className="form-control mb-4" readOnly = "readonly" placeholder={"Date Created: "+ date}/>
 
-          <div class="form-group">
-              <textarea name = "description"  readonly = "readonly" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder= {"Description: " + description}></textarea>
+          <div className="form-group">
+              <textarea name = "description"  readOnly = "readonly" className="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder= {"Description: " + description}></textarea>
           </div>
 
-          <button  onClick= {handleClick} class="btn btn-info btn-block" >Resolve Ticket</button>
+          <button  onClick= {handleClick} className="btn btn-info btn-block" >Resolve Ticket</button>
 
       </form>
     </div>

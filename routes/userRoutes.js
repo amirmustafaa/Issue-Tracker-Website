@@ -197,7 +197,7 @@ router.post("/createIssue", async(req,res) => {
 router.post("/userProjects",  async(req, res)=>{
   try{
     let {project_id} = req.body;
-    const project = await Project.findById(project_id).populate('issues').populate({ path: 'users', select: 'email' })
+    const project = await Project.findById(project_id).populate('issues').populate({ path: 'users', select: 'username' })
     res.json({
         name:project.name,
         description:project.description,

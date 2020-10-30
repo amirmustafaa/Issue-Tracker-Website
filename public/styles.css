@@ -51,7 +51,7 @@ header.masthead .overlay {
   opacity: 0.3;
 }
 
-header.masthead h1 {
+header.masthead h1  {
   font-size: 2rem;
 }
 
@@ -141,17 +141,25 @@ header.masthead h1 {
   font-size: 3.5rem;
   text-align: center;
 }
-/****************************Register Page************************************/
 
-/****************************Log in Page************************************/
+/****************************Register and Log in Page************************************/
 
 .login-page{
   padding-top: 7%;
+  padding-bottom: 13%
 }
 
 .register-page{
   padding-top: 5%;
+  padding-bottom: 5%
 }
+
+@media only screen and (max-width: 1500px) {
+  .login-page, .register-page{
+      padding-bottom: 63%;
+  }
+}
+
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
@@ -240,12 +248,30 @@ header.masthead h1 {
   }
 }
 /***************************Sidebar*****************************************/
+
+
 .sidebar {
   width: 15rem;
   min-height: 100vh;
   background-color: #242424;
 
+
 }
+
+@media only screen and (max-width: 1650px) {
+  .sidebar {
+    min-height: 150vh
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .sidebar {
+    min-height: 300vh
+  }
+}
+
+
+
 
 .sidebar .nav-link  {
   position: relative;
@@ -267,7 +293,6 @@ background-color:white;
 width:80%;
 text-align: center;
 margin-bottom: 5%;
-auto 0 0;
 }
 
 .sidebar-item{
@@ -275,6 +300,12 @@ auto 0 0;
   padding-bottom: 10%;
   text-transform: uppercase;
   opacity: .7;
+}
+
+@media only screen and (max-width: 1500px) {
+  .sidebar-item {
+      padding-bottom: 20%;
+  }
 }
 
 .sidebar-link{
@@ -285,19 +316,23 @@ auto 0 0;
 
 .flex-container {
     display:flex;
+
 }
 
 .flex-side {
   flex: 1;
+
+
 }
 .flex-main{
   flex: 7;
-
 }
+
 
 .flex-container-tickets{
   display: flex;
-  padding: 5%;
+  padding: 4% 12% 0% 12%;
+
 }
 
 .flex-open{
@@ -309,22 +344,31 @@ auto 0 0;
 .flex-resolved{
   flex:1;
   text-align: center;
+  margin-left: 3%
 
 }
 
 .ticket-header{
   text-align: center;
 }
-
+.user-list{
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 3%;
+  text-align: center;
+  font-size: 1.5rem;
+}
 
 
 .chart-container{
   display:flex;
-  padding-left: 15%;
+  padding-left: 13%;
+  padding-top: 5%;
+  flex-wrap: wrap;
 }
 .status-chart{
   flex:2;
-  margin-right: 0px;
+  padding-bottom: 15%;
 }
 .severity-chart{
   flex:2;
@@ -342,14 +386,15 @@ auto 0 0;
 }
 
 .list-group{
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
   text-align: center;
   font-size: 1.5rem;
 }
 
 .profile-heading{
   text-align: center;
+  padding-top: 3%;
 }
 
 .profile-list{

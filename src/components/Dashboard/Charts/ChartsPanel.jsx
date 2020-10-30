@@ -1,8 +1,7 @@
 import React, {useState,useEffect}from 'react';
 import DashNavbar from '../DashNavbar.jsx';
-import { Link} from 'react-router-dom';
 import Axios from 'axios';
-import { PieChart, Pie, Sector, Tooltip } from 'recharts';
+import { PieChart, Pie, Tooltip } from 'recharts';
 
 
 
@@ -10,7 +9,7 @@ import { PieChart, Pie, Sector, Tooltip } from 'recharts';
 function ChartsPanel(){
   const [state, setState] = useState([]);
   let url = window.location.href;
-  let projectId = url.slice(url.length - 24);
+  let projectId = url.slice(- 24);
 
   const projectObject = {
     project_id: projectId

@@ -4,7 +4,6 @@ import UserContext from "../context/UserContext.js";
 import Home from './Home/Home.jsx';
 import Login from './Login/Login.jsx';
 import Register from './Register/Register.jsx';
-import Demo from './Dashboard/Demo/Demo.jsx';
 import MainPage from './Dashboard/MainPage/MainPage.jsx';
 import TicketInfo from './Dashboard/TicketInfo/TicketInfo.jsx';
 import CreateTicket from './Dashboard/CreateTicket/CreateTicket.jsx';
@@ -61,7 +60,6 @@ useEffect(() => {
             <Route path= "/" exact component = {Home} />
             <Route path= "/login" component = {Login} />
             <Route path= "/register" component = {Register} />
-            <Route path= "/demo" component = {Demo} />
           </Switch>
           {userData.token ? (
             <Switch>
