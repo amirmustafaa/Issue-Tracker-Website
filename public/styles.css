@@ -60,6 +60,7 @@ header.masthead h1  {
     padding-top: 12rem;
     padding-bottom: 12rem;
   }
+
   header.masthead h1 {
     font-size: 3rem;
   }
@@ -177,6 +178,7 @@ header.masthead h1  {
   font-size: 1.5rem;
 }
 
+
 .card-signin .card-body {
   padding: 2rem;
 }
@@ -235,18 +237,6 @@ header.masthead h1  {
   }
 }
 
-/* Fallback for IE
--------------------------------------------------- */
-
-@media all and (-ms-high-contrast: none),
-(-ms-high-contrast: active) {
-  .form-label-group>label {
-    display: none;
-  }
-  .form-label-group input:-ms-input-placeholder {
-    color: #777;
-  }
-}
 /***************************Sidebar*****************************************/
 
 

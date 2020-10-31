@@ -36,7 +36,7 @@ function CreateProject(){
 
     const projectRes = await  Axios.post("http://localhost:5000/users/createProject", projectObject);
 
-    history.replace("/profile/" + userData.user.id);
+    history.push("/profile/" + userData.user.id);
   };
 
   return(

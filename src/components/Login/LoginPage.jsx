@@ -38,11 +38,9 @@ function LoginPage(){
       user: loginRes.data.user
     })
     cookies.set("auth-token", loginRes.data.token,{ path: '/' }, {httpOnly:true});
-    history.replace("/profile/" + loginRes.data.user.id)
+    history.push("/profile/" + loginRes.data.user.id)
 
   };
-
-
 
   return(
     <div className="container login-page">
