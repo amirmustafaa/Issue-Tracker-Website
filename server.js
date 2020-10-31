@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 //set up mongoose
-mongoose.connect("mongodb://localhost:27017/trackerDB", {
+mongoose.connect("mongodb+srv://admin-amir:"+process.env.MONGO_SECRET+"@giantbugtracker.yjujx.mongodb.net/trackerDB", {
   useUnifiedTopology: true,
   useFindAndModify: false,
   useNewUrlParser: true,
